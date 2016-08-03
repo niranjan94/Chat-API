@@ -473,7 +473,7 @@ class axolotlSqliteStore implements axolotlInterface
 
     public function storeSession($recipientId, $deviceId, $sessionRecord)
     {
-        $this->deleteSession($recipientId, 1);
+        $this->deleteSession($recipientId, $deviceId);
         $sql = 'INSERT INTO sessions(recipient_id, device_id, record) VALUES (:recipient_id, :device_id, :record)';
         $query = $this->db->prepare($sql);
 
